@@ -11,6 +11,7 @@ import { getShoppingProducts } from "../redux/modules/shoppingSlice";
 // Reusable component imports
 import LoadingIndicator from "../components/common/LoadingIndicator";
 import Product from "../components/shopping/Product";
+import ProductFilters from "../components/shopping/ProductFilters";
 
 const Shopping = () => {
   // using the useEffect hook from react to dispatch getShoppingProducts action when this component loads
@@ -23,9 +24,14 @@ const Shopping = () => {
   const dispatch = useDispatch();
 
   // Getting all the global state variables here to use in this component
-  const { products, isFetchingProducts } = useSelector(
+  const { products, filteredData, isFetchingProducts } = useSelector(
     (state) => state.shopping
   );
+
+  // Check if filteredData array contains products.
+  // If yes, display filtered data based on sizeOptions.
+  // If no, display all products by default.
+  const productsList = filteredData.length ? filteredData : products;
 
   // Display the loading indicator to the user when API call is in progress
   // (based on the boolean value from the global state variable)
@@ -48,12 +54,17 @@ const Shopping = () => {
           <h3 className="mb-0">
             <strong>Women's tops</strong>
           </h3>
-          <p className="mb-0">Filters</p>
+          <div>
+            <p className="mb-0">
+              <small>Filter by size</small>
+            </p>
+            <ProductFilters />
+          </div>
         </div>
         <Row>
           {/* Display the products list once we have got the data from backend */}
-          {products &&
-            products.map((product) => (
+          {productsList ? (
+            productsList.map((product) => (
               // Loop through all the products using the js map function and reuse the Product component to display in the DOM
               // Have considered the 'index' key from the JSON response as it was found to be unique
 
@@ -73,9 +84,15 @@ const Shopping = () => {
                   image={product.productImage}
                   isExclusive={product.isExclusive}
                   isSale={product.isSale}
+                  size={product.size}
                 />
               </Col>
-            ))}
+            ))
+          ) : (
+            <div>
+              <p className="text-center p-5">No results found</p>
+            </div>
+          )}
         </Row>
       </Container>
     </React.Fragment>

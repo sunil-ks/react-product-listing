@@ -16,9 +16,18 @@ const productsSlice = createSlice({
   initialState: {
     isFetchingProducts: false, // used to show/hide the loading indicator for product listing async action
     products: [], // expecting this variable to fill up the array once data is fetched from backend
+    filteredData: [],
   },
   reducers: {
     // non-async reducers here
+
+    // action to filter the products based on size as per the psd file
+    filterProducts: (state, action) => {
+      const data = state.products;
+      state.filteredData = data.filter((product) =>
+        product.size.includes(action.payload)
+      );
+    },
   },
   extraReducers: {
     // handling async action creators here in order to mutate the global state data appropriately
@@ -42,4 +51,5 @@ const productsSlice = createSlice({
   },
 });
 
+export const { filterProducts } = productsSlice.actions;
 export default productsSlice.reducer;

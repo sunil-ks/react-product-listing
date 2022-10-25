@@ -8,12 +8,12 @@ import store from "./redux/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
     {/* Wrap the App component with the Provider and pass the store so that our
     react application will have access to all the global states which we have
     defined */}
     <Provider store={store}>
       <App />
     </Provider>
-  </React.StrictMode>
+  </React.Fragment>
 );
