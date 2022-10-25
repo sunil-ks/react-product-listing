@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
-import { getShoppingProducts } from "../redux/shoppingSlice";
+import { getShoppingProducts } from "../redux/modules/shoppingSlice";
 
 // Reusable component imports
 import LoadingIndicator from "../components/common/LoadingIndicator";
@@ -17,6 +17,7 @@ const Shopping = () => {
   // Passing empty array as the second parameter to the call back function to trigger this action only when page loads and not on every re-render
   useEffect(() => {
     dispatch(getShoppingProducts());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const Shopping = () => {
       <div className="m-5 d-flex justify-content-center align-items-center text-center">
         <div>
           <LoadingIndicator />
-          <p className="mt-2">Loading products. Please wait...</p>
+          <p className="mt-3">Loading products. Please wait...</p>
         </div>
       </div>
     );
@@ -43,7 +44,7 @@ const Shopping = () => {
     <React.Fragment>
       {/* UI as per the psd design attached in the assignment zip file */}
       <Container className="mt-5 mb-5">
-        <div className="d-flex justify-content-between align-items-center p-2 background--cyan mb-3">
+        <div className="d-flex flex-justify-between p-2 background--cyan mb-3">
           <h3 className="mb-0">
             <strong>Women's tops</strong>
           </h3>
