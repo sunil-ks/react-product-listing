@@ -20,3 +20,8 @@
 .flex-justify-between {
     @include flex-justify-between;
 }
+
+.product-card:hover {
+    background-color: $lightBlue;
+    @include transition-ease
+}
