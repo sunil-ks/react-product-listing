@@ -1,7 +1,10 @@
+import "./App.css";
+import Products from "./views/Products";
+
 function App() {
   return (
-    <div>
-      <p>Hello world!</p>
+    <div className="App">
+      <Products />
     </div>
   );
 }
