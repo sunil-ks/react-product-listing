@@ -44,7 +44,7 @@ const Product = ({ name, price, image, isExclusive, isSale }) => {
         </div>
 
         {/* Create a flex container to display the product name and price as per the psd design */}
-        <div className="mt-3 d-flex justify-content-between align-items-center">
+        <div className="mt-3 flex-justify-between">
           {/* Adding 60% width here for better look and feel so that text does not go very near to the price */}
           <h6 style={{ width: "60%" }} title={name} className="mb-0">
             {/* Basic error handling if in case 'name' value is falsey from the api response, then display NA (Not Available) */}

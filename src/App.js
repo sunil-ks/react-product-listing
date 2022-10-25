@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Products from "./views/Products";
 
 function App() {
