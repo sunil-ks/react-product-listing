@@ -7,6 +7,7 @@ const Select = ({ id, name, options, handleChange }) => (
     onChange={handleChange}
     className="form-select form-select-sm"
     aria-label="Dropdown"
+    data-testid="select"
   >
     {options.map((option) => (
       <option key={option.value} value={option.value}>
