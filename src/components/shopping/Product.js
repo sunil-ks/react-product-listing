@@ -21,14 +21,14 @@ const Product = ({ name, price, image, isExclusive, isSale, size }) => {
           {/* Show the Sale tag when isSale value is truthy */}
           {isSale && (
             <p className="mb-0">
-              <span className="background--red text--white p-2">Sale</span>
+              <span className="background--red text--white p-2" data-testid="sale-tag">Sale</span>
             </p>
           )}
 
           {/* Show the Exclusive tag when isExclusive value is truthy */}
           {isExclusive && (
             <p className="mb-0">
-              <span className="background--green text--white p-2">
+              <span className="background--green text--white p-2" data-testid="exclusive-tag">
                 Exclusive
               </span>
             </p>
@@ -46,11 +46,11 @@ const Product = ({ name, price, image, isExclusive, isSale, size }) => {
         {/* Create a flex container to display the product name and price as per the psd design */}
         <div className="mt-3 mb-2 flex-justify-between">
           {/* Adding 60% width here for better look and feel so that text does not go very near to the price */}
-          <h6 style={{ width: "60%" }} title={name} className="mb-0">
+          <h6 style={{ width: "60%" }} title={name} className="mb-0" data-testid="product-name">
             {/* Basic error handling if in case 'name' value is falsey from the api response, then display NA (Not Available) */}
             {name || "NA"}
           </h6>
-          <h5 title={price} className="mb-0">
+          <h5 title={price} className="mb-0" data-testid="product-price">
             {/* Basic error handling if in case 'price' value is falsey from the api response, then display NA (Not Available) */}
             {price || "NA"}
           </h5>
