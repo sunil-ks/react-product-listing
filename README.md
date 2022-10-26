@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# Getting Started with the Product listing application
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and the node version used is [v14.16.1](https://nodejs.org/download/release/v14.16.1/). UI components library '[Bootstrap 5](https://getbootstrap.com/docs/5.0/getting-started/introduction/)' has been used in displaying various UI elements.
+
+## Steps to run the project on local machine
+
+- Clone the project and run `npm install` on the 'master' branch.
+- Then run the app using the command `npm start`
+
 
 ## Available Scripts
 
